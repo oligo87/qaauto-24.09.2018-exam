@@ -29,7 +29,7 @@ public class GoogleSearchTest extends BaseTest{
     @Test
     public void googleSearchTest(){
         String searchTerm = "Selenium";
-        int pagesToVerify = 2;
+        int pagesToVerify = 5;
 
         Assert.assertTrue(googlePage.isPageLoaded(), "Google search page is not loaded.");
 
@@ -37,13 +37,15 @@ public class GoogleSearchTest extends BaseTest{
 
         for (int i = 0; i < pagesToVerify; i++){
 
-        Assert.assertTrue(searchResultsPage.isPageLoaded(i), "Search results page is not loaded.");
-        Assert.assertEquals(searchResultsPage.getSearchResultsCount(), 10, "SearchResultsCount is wrong.");
-        List<String> searchResultsList = searchResultsPage.getSearchResults();
-        for (String searchResult : searchResultsList){
-            Assert.assertTrue(searchResult.toLowerCase().contains(searchTerm.toLowerCase()), "SearchTerm "+searchTerm+ "is not found in "+searchResult);
-        }
-            searchResultsPage.goToNextPage();
+            Assert.assertTrue(searchResultsPage.isPageLoaded(i), "Search results page is not loaded.");
+            Assert.assertEquals(searchResultsPage.getSearchResultsCount(), 10, "SearchResultsCount is wrong.");
+            List<String> searchResultsList = searchResultsPage.getSearchResults();
+            for (String searchResult : searchResultsList){
+                Assert.assertTrue(searchResult.toLowerCase().contains(searchTerm.toLowerCase()), "SearchTerm "+searchTerm+ "is not found in "+searchResult);
+            }
+            if (i < pagesToVerify-1) {
+                searchResultsPage.goToNextPage();
+            }
         }
     }
 }
