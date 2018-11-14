@@ -37,7 +37,7 @@ public class GoogleSearchTest extends BaseTest{
 
         for (int i = 0; i < pagesToVerify; i++){
 
-        Assert.assertTrue(searchResultsPage.isPageLoaded(), "Search results page is not loaded.");
+        Assert.assertTrue(searchResultsPage.isPageLoaded(i), "Search results page is not loaded.");
         Assert.assertEquals(searchResultsPage.getSearchResultsCount(), 10, "SearchResultsCount is wrong.");
         List<String> searchResultsList = searchResultsPage.getSearchResults();
         for (String searchResult : searchResultsList){

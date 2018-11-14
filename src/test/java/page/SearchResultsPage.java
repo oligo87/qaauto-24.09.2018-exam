@@ -19,14 +19,18 @@ public class SearchResultsPage extends BasePage{
     @FindBy(xpath = "//a[@id='pnnext']")
     private WebElement nextPageButton;
 
-    public SearchResultsPage(WebDriver webDriver) {
+    @FindBy(xpath = "//td[@class='cur']")
+    private WebElement currentPageIndicator;
+
+    SearchResultsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
     }
 
-    public boolean isPageLoaded() {
+    public boolean isPageLoaded(int i) {
         waitUntilElementIsClickable(navigationBar);
         return webDriver.getCurrentUrl().contains("https://www.google.com/search")
+                && currentPageIndicator.getText().equals(String.valueOf(i+1))
                 && webDriver.getTitle().equals("Selenium - Пошук Google");
     }
 
@@ -35,7 +39,7 @@ public class SearchResultsPage extends BasePage{
     }
 
     public List<String> getSearchResults() {
-        List<String> searchResultsStringList = new ArrayList<String>();
+        List<String> searchResultsStringList = new ArrayList<>();
         for (WebElement searchResult : searchResultsList){
             String searchResultText = searchResult.getText();
             searchResultsStringList.add(searchResultText);
