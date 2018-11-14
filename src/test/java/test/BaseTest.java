@@ -13,7 +13,7 @@ public class BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         webDriver = new FirefoxDriver();
-        webDriver.get("https://www.google.com/");
+        webDriver.get("https://www.google.com");
         googlePage = new GooglePage(webDriver);
     }
 

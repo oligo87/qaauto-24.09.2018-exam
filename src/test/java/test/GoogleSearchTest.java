@@ -2,11 +2,11 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.GooglePage;
+import page.SearchResultsPage;
 
 import java.util.List;
 
-public class GoogleSearchTest {
+public class GoogleSearchTest extends BaseTest{
 
     /**
      * PreConditions:
@@ -29,7 +29,7 @@ public class GoogleSearchTest {
     @Test
     public void googleSearchTest(){
         String searchTerm = "Selenium";
-        Integer pagesToVerify = 2;
+        int pagesToVerify = 2;
 
         Assert.assertTrue(googlePage.isPageLoaded(), "Google search page is not loaded.");
 
@@ -43,8 +43,7 @@ public class GoogleSearchTest {
         for (String searchResult : searchResultsList){
             Assert.assertTrue(searchResult.toLowerCase().contains(searchTerm.toLowerCase()), "SearchTerm "+searchTerm+ "is not found in "+searchResult);
         }
-
-            SearchResultsPage searchResultsPage = searchResultsPage.goToNextPage();
+            searchResultsPage.goToNextPage();
         }
     }
 }
