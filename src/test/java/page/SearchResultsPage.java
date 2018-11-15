@@ -40,7 +40,7 @@ public class SearchResultsPage extends BasePage{
         waitUntilElementIsClickable(navigationBar);
         return webDriver.getCurrentUrl().contains("https://www.google.com/search")
                 && currentPageIndicator.getText().equals(String.valueOf(i+1))
-                && webDriver.getTitle().equals("Selenium - Пошук Google");
+                && webDriver.getTitle().contains("Google");
     }
 
     /**
