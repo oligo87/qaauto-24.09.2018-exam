@@ -18,8 +18,8 @@ public class GoogleSearchTest extends BaseTest{
      * - Click on Search button
      * - Assert number of Search results is 10 on page 1
      * - Assert that each result in a list contains searchTerm
-     * - Click on "2" link to switch to next page
-     * - Assert number of Search results is 10 on page 2
+     * - Click on NextPage link to switch to next page
+     * - Assert number of Search results is 10 on next page
      * - Assert that each result in a list contains searchTerm
      *
      * PostCondition:
