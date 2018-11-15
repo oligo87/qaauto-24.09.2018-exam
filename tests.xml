@@ -1,0 +1,13 @@
+<suite name="All login tests.">
+
+    <test name="positive">
+        <classes>
+            <class name="test.GoogleSearchTest">
+                <methods>
+                    <include name="googleSearchTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

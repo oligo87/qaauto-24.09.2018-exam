@@ -29,7 +29,7 @@ public class GoogleSearchTest extends BaseTest{
     @Test
     public void googleSearchTest(){
         String searchTerm = "Selenium";
-        int pagesToVerify = 5;
+        int pagesToVerify = 2;
 
         Assert.assertTrue(googlePage.isPageLoaded(), "Google search page is not loaded.");
 
