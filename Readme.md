@@ -14,6 +14,9 @@ Tools setup
     Maven           see https://dev-pages.info/how-to-install-maven-on-windows-10/
     Jenkins         see https://dzone.com/articles/how-to-install-jenkins-on-windows
 
+Run from command line
+    mvn clean install -DsuiteXmlFile=tests.xml
+
 \src\test\java\test - contains test classes
 \src\test\java\page - contains page objects classes
 .gitignore - contains list of folders/files to be excluded for GIT sync
